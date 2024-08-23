@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlmvs78p25v7n"]
+
+[ext_resource type="PackedScene" uid="uid://buy123tofruld" path="res://Prefabs/Nodules/Nodule_Gun_Prototype.tscn" id="1_n6qg8"]
+[ext_resource type="PackedScene" uid="uid://byra4r6ptswet" path="res://Prefabs/Bullets/Bullet_Diss_FX.tscn" id="2_f1p82"]
+
+[node name="Nodule_Gun_Prototype" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="NoduleGun" parent="." instance=ExtResource("1_n6qg8")]
+
+[node name="NoduleGun2" parent="." instance=ExtResource("1_n6qg8")]
+position = Vector2(-35, 0)
+
+[node name="NoduleGun3" parent="." instance=ExtResource("1_n6qg8")]
+position = Vector2(35, 0)
+
+[node name="BulletDissFX" parent="." instance=ExtResource("2_f1p82")]

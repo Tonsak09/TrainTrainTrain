@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbspffoye5dg0"]
+
+[ext_resource type="Script" path="res://Scripts/Bullet.gd" id="1_dbrho"]
+[ext_resource type="Texture2D" uid="uid://4qaxxttw3gxb" path="res://Textures/Bullet.png" id="2_7fpk3"]
+
+[node name="Bullet" type="Node2D"]
+position = Vector2(20, 15)
+script = ExtResource("1_dbrho")
+
+[node name="BulletSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_7fpk3")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="Cleanup"]

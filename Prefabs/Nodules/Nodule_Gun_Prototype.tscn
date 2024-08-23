@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://buy123tofruld"]
+
+[ext_resource type="Script" path="res://Scripts/Nodule_Gun.gd" id="1_rx86u"]
+[ext_resource type="Texture2D" uid="uid://bqu3qu6xng1tb" path="res://Textures/GunBase.png" id="1_ytber"]
+[ext_resource type="Texture2D" uid="uid://cu053u2dfopsb" path="res://Textures/GunBarrel.png" id="2_tvtns"]
+[ext_resource type="Script" path="res://Scripts/Looker.gd" id="3_bqwee"]
+
+[node name="NoduleGun" type="Node2D" node_paths=PackedStringArray("director", "spawnPoint")]
+script = ExtResource("1_rx86u")
+director = NodePath("GunBase/GunBarrel")
+spawnPoint = NodePath("GunBase/GunBarrel/BulletSpawnPoint")
+bulletSpeed = 100.0
+
+[node name="GunBase" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_ytber")
+
+[node name="GunBarrel" type="Sprite2D" parent="GunBase"]
+texture = ExtResource("2_tvtns")
+script = ExtResource("3_bqwee")
+turnSpeed = 10.0
+
+[node name="BulletSpawnPoint" type="Node2D" parent="GunBase/GunBarrel"]
+position = Vector2(16, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="SpawnBullet"]
